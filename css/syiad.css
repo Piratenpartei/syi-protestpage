@@ -1,0 +1,46 @@
+body {
+	overflow: hidden !important;
+}
+#syiad {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background: rgba(0,0,0,.9);
+	z-index: 2147483647;
+	display: grid;
+	place-items: center center;
+	overflow-y: auto;
+}
+#syiad #syiad_box {
+	background-color: white;
+	max-width: 700px;
+	padding: 15px;
+	margin: 15px;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+#syiad #syiad_closelink {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px;
+}	
+#syiad #syiad_box #syiad_headline, #syiad #syiad_box #syiad_logo {
+	display: block;
+	text-align: center;
+}
+#syiad #syiad_box img {
+	max-width: 90%;
+}
+#syiad #syiad_box #syiad_logo img {
+	max-width: 90%;
+	width: 300px;
+}
+#syiad #syiad_box ul {
+	list-style: disc;
+}
