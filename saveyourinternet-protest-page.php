@@ -8,7 +8,11 @@
  * Author URI: https://github.com/Piratenpartei
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: saveyourinternet-protest-page
+ * Domain Path: /languages
  */
+
+echo __( 'test', 'saveyourinternet-protest-page' );
 
 include( plugin_dir_path( __FILE__ ) . 'defaults.php');
 include( plugin_dir_path( __FILE__ ) . 'options.php');
@@ -25,6 +29,7 @@ if ( !class_exists( 'SYIAD' ) ) {
             $plugin = plugin_basename( __FILE__ );
             add_action('init', array($this, 'init'));
             add_filter( "plugin_action_links_$plugin", array($this, 'plugin_add_settings_link') );
+		add_action( 'plugins_loaded', array($this, 'load_plugin_textdomain') );
         }
 
         function init() {
@@ -77,7 +82,13 @@ if ( !class_exists( 'SYIAD' ) ) {
             return $links;
         }
 
+	function load_plugin_textdomain() {
+	    load_plugin_textdomain( 'syi-protestpage', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+	}
+
     }
 }
 
 $syiad_instance = new SYIAD();
+
+
