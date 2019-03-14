@@ -24,7 +24,9 @@ if ( !class_exists( 'SYIAD' ) ) {
          */
         public function __construct()
         {
+            $plugin = plugin_basename( __FILE__ );
             add_action('init', array($this, 'init'));
+            add_filter( "plugin_action_links_$plugin", array($this, 'plugin_add_settings_link') );
         }
 
         function init() {
@@ -70,7 +72,13 @@ if ( !class_exists( 'SYIAD' ) ) {
             }
             echo '</div></div>';
         }
-        
+
+        function plugin_add_settings_link( $links ) {
+            $settings_link = '<a href="options-general.php?page=syiad-admin">' . __( 'Settings' ) . '</a>';
+            array_push( $links, $settings_link );
+            return $links;
+        }
+
     }
 }
 
