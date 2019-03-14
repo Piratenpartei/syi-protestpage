@@ -19,4 +19,3 @@ Selbst kleinere Unternehmen müssten demnach fehleranfällige, teure und technis
     <li><a href="https://savetheinternet.info/demos">gehen Sie am 23. März auf die Straße</a>,</li> 
 
     <li>nehmen Sie Ihr demokratisches Recht wahr und gehen Sie am 26. Mai zur Wahl.</li></ul></p>');
-?>
