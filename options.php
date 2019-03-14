@@ -2,7 +2,6 @@
 class SYIAD_Options {
 
     private $options;
-    private $textdomain = "syiad";
 
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
@@ -11,8 +10,8 @@ class SYIAD_Options {
 
     public function add_plugin_page() {
         add_options_page(
-            __('SaveYourInternet Protest Page', $this->textdomain),
-            __('SaveYourInternet Protest Page', $this->textdomain),
+            __('SaveYourInternet Protest Page', 'saveyourinternet-protest-page'),
+            __('SaveYourInternet Protest Page', 'saveyourinternet-protest-page'),
             'switch_themes',
             'syiad-admin',
             array( $this, 'create_admin_page' )
@@ -24,7 +23,7 @@ class SYIAD_Options {
         $this->options = get_option( 'syiad_option' );
         ?>
         <div class="wrap">
-            <h1><?php _e("SaveYourInternet Protest Page", $this->textdomain);?></h1>
+            <h1><?php _e("SaveYourInternet Protest Page", 'saveyourinternet-protest-page');?></h1>
             <form method="post" action="options.php">
             <?php
                 settings_fields( 'syiad_optiongroup' );
@@ -45,35 +44,35 @@ class SYIAD_Options {
 
         add_settings_section(
             'syiad_option_section_general',
-            __('main settings', $this->textdomain),
+            __('main settings', 'saveyourinternet-protest-page'),
             array( $this, 'section_info_general' ),
             'syiad-admin'
         );
 
         add_settings_field(
             'enable',
-            __('activate protest', $this->textdomain),
+            __('activate protest', 'saveyourinternet-protest-page'),
             array( $this, 'general_enable_callback' ),
             'syiad-admin',
             'syiad_option_section_general'
         );
         add_settings_field(
             'type',
-            __('info box not closable', $this->textdomain),
+            __('info box not closable', 'saveyourinternet-protest-page'),
             array( $this, 'general_notclosable_callback' ),
             'syiad-admin',
             'syiad_option_section_general'
         );
         add_settings_field(
             'date',
-            __('date', $this->textdomain),
+            __('date', 'saveyourinternet-protest-page'),
             array( $this, 'general_date_callback' ),
             'syiad-admin',
             'syiad_option_section_general'
         );
         add_settings_field(
             'exclude',
-            __('exclude', $this->textdomain),
+            __('exclude', 'saveyourinternet-protest-page'),
             array( $this, 'general_exclude_callback' ),
             'syiad-admin',
             'syiad_option_section_general'
@@ -81,13 +80,13 @@ class SYIAD_Options {
 
         add_settings_section(
             'syiad_option_section_debug',
-            __('debug', $this->textdomain),
+            __('debug', 'saveyourinternet-protest-page'),
             array( $this, 'section_info_debug' ),
             'syiad-admin'
         );
         add_settings_field(
             'testmode',
-            __('test mode', $this->textdomain),
+            __('test mode', 'saveyourinternet-protest-page'),
             array( $this, 'debug_testmode_callback' ),
             'syiad-admin',
             'syiad_option_section_debug'
@@ -95,34 +94,34 @@ class SYIAD_Options {
 
         add_settings_section(
             'syiad_option_section_format',
-            __('format', $this->textdomain),
+            __('format', 'saveyourinternet-protest-page'),
             array( $this, 'section_info_format' ),
             'syiad-admin'
         );
         add_settings_field(
             'link',
-            __('link URL', $this->textdomain),
+            __('link URL', 'saveyourinternet-protest-page'),
             array( $this, 'format_link_callback' ),
             'syiad-admin',
             'syiad_option_section_format'
         );
         add_settings_field(
             'customtext',
-            __('use custom text', $this->textdomain),
+            __('use custom text', 'saveyourinternet-protest-page'),
             array( $this, 'format_customtext_callback' ),
             'syiad-admin',
             'syiad_option_section_format'
         );
         add_settings_field(
             'text',
-            __('custom text', $this->textdomain),
+            __('custom text', 'saveyourinternet-protest-page'),
             array( $this, 'format_text_callback' ),
             'syiad-admin',
             'syiad_option_section_format'
         );
         add_settings_field(
             'showlogo',
-            __('show logo', $this->textdomain),
+            __('show logo', 'saveyourinternet-protest-page'),
             array( $this, 'format_showlogo_callback' ),
             'syiad-admin',
             'syiad_option_section_format'
@@ -196,28 +195,28 @@ class SYIAD_Options {
 
     public function general_enable_callback() {
         echo '<input type="checkbox" id="general_enable" name="syiad_option[general][enable]" value="1" '. checked( $this->options['general']['enable'], true, false ) .' />';
-        echo '<label for="general_enable">'.__('activate', $this->textdomain).'</label>';
-        echo '<p class="description">'.__('A protest box will be shown on your site on the chosen date', $this->textdomain).'</p>';
+        echo '<label for="general_enable">'.__('activate', 'saveyourinternet-protest-page').'</label>';
+        echo '<p class="description">'.__('A protest box will be shown on your site on the chosen date', 'saveyourinternet-protest-page').'</p>';
     }
     public function general_notclosable_callback() {
         echo '<input type="checkbox" id="general_notclosable" name="syiad_option[general][notclosable]" value="1" '. checked( $this->options['general']['notclosable'], true, false ) .' />';
-        echo '<label for="general_notclosable">'.__('activate', $this->textdomain).'</label>';
-        echo '<p class="description">'.__('If activated, the box will not be closable. Your site will be unusable.', $this->textdomain).'</p>';
+        echo '<label for="general_notclosable">'.__('activate', 'saveyourinternet-protest-page').'</label>';
+        echo '<p class="description">'.__('If activated, the box will not be closable. Your site will be unusable.', 'saveyourinternet-protest-page').'</p>';
     }
     public function general_date_callback() {
         printf('<input type="date" id="general_date" name="syiad_option[general][date]" value="%s" />',
         isset( $this->options['general']['date'] ) ? esc_attr( $this->options['general']['date']) : '2019-03-21' );
-        echo '<p class="description">'.__('Online protest day is March 21st. Offline protests will be on march 23rd.', $this->textdomain).'</p>';
+        echo '<p class="description">'.__('Online protest day is March 21st. Offline protests will be on march 23rd.', 'saveyourinternet-protest-page').'</p>';
     }
     public function general_exclude_callback() {
         printf('<input type="text" id="general_exclude" name="syiad_option[general][exclude]" value="%s" />',
         isset( $this->options['general']['exclude'] ) ? esc_attr( $this->options['general']['exclude']) : '' );
-        echo '<p class="description">'.__('comma-seperated list wirh page/post-ids, which will be excluded.', $this->textdomain).'</p>';
+        echo '<p class="description">'.__('comma-seperated list wirh page/post-ids, which will be excluded.', 'saveyourinternet-protest-page').'</p>';
     }
     public function debug_testmode_callback() {
         echo '<input type="checkbox" id="debug_testmode" name="syiad_option[debug][testmode]" value="1" '. checked( $this->options['debug']['testmode'], true, false ) .' />';
-        echo '<label for="debug_testmode">'.__('activate', $this->textdomain).'</label>';
-        echo '<p class="description">'.__('Show overlay now.', $this->textdomain).'</p>';
+        echo '<label for="debug_testmode">'.__('activate', 'saveyourinternet-protest-page').'</label>';
+        echo '<p class="description">'.__('Show overlay now.', 'saveyourinternet-protest-page').'</p>';
     }
     public function format_link_callback() {
         printf('<input type="text" id="format_link" name="syiad_option[format][link]" value="%s" />',
@@ -225,7 +224,7 @@ class SYIAD_Options {
     }
     public function format_customtext_callback() {
         echo '<input type="checkbox" id="format_customtext" name="syiad_option[format][customtext]" value="1" '. checked( $this->options['format']['customtext'], true, false ) .' />';
-        echo '<label for="format_customtext">'.__('activate', $this->textdomain).'</label>';
+        echo '<label for="format_customtext">'.__('activate', 'saveyourinternet-protest-page').'</label>';
     }
     public function format_text_callback() {
         printf('<textarea id="format_text" name="syiad_option[format][text]">%s</textarea>',
@@ -235,7 +234,7 @@ class SYIAD_Options {
         echo '<input type="checkbox" id="format_showlogo" name="syiad_option[format][showlogo]" value="1" ';
         if ( !isset($this->options['format']['showlogo']) || (true === $this->options['format']['showlogo'])) echo 'checked="checked"';
         echo ' />';
-        echo '<label for="format_showlogo">'.__('activate', $this->textdomain).'</label>';
+        echo '<label for="format_showlogo">'.__('activate', 'saveyourinternet-protest-page').'</label>';
     }
 }
 
