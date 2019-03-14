@@ -12,8 +12,6 @@
  * Domain Path: /languages
  */
 
-echo __( 'test', 'saveyourinternet-protest-page' );
-
 include( plugin_dir_path( __FILE__ ) . 'defaults.php');
 include( plugin_dir_path( __FILE__ ) . 'options.php');
 
@@ -83,12 +81,10 @@ if ( !class_exists( 'SYIAD' ) ) {
         }
 
 	function load_plugin_textdomain() {
-	    load_plugin_textdomain( 'syi-protestpage', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+	    load_plugin_textdomain( 'saveyourinternet-protest-page', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 	}
 
     }
 }
 
 $syiad_instance = new SYIAD();
-
-
