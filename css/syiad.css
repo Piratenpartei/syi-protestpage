@@ -1,3 +1,7 @@
+@font-face {
+	font-family: syiad-roboto;
+	src: url(roboto/Roboto-Regular.ttf);
+}
 body {
 	overflow: hidden !important;
 }
@@ -13,9 +17,24 @@ body {
 	display: grid;
 	place-items: center center;
 	overflow-y: auto;
+	font-family: syiad-roboto, sans-serif;
+	font-size: 16px;
+	color: black !important;
+}
+#syiad p {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: block;
+	line-height: 130%;
+}
+#syiad a {
+	color: #ff8800;
+}
+#syiad ul {
+	list-style-type: disc !important;
 }
 #syiad #syiad_box {
-	background-color: white;
+	background-color: white !important;
 	max-width: 700px;
 	padding: 15px;
 	margin: 15px;
@@ -40,7 +59,5 @@ body {
 #syiad #syiad_box #syiad_logo img {
 	max-width: 90%;
 	width: 300px;
-}
-#syiad #syiad_box ul {
-	list-style: disc;
+
 }
