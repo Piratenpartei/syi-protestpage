@@ -32,7 +32,7 @@ if ( !class_exists( 'SYIAD' ) ) {
 
         function init() {
             $this->options = get_option( 'syiad_option' );
-            if ((true === $this->options['general']['enable']) || (true === $this->options['debug']['testmode'])) {
+            if (true === $this->options['general']['enable']) {
                 add_action( "wp_footer", array($this, "show_off_page") );
             }
             if(!session_id())
@@ -40,9 +40,11 @@ if ( !class_exists( 'SYIAD' ) ) {
         }
 
         function show_off_page() {
-            if ((true !== $this->options['debug']['testmode']) && (current_time("Y-m-d") != $this->options['general']['date'])) {
+
+            if (!((current_time("Y-m-d") == $this->options['general']['date']) || ((true === $this->options['debug']['testmode']) && (current_user_can('switch_themes'))))) {
                 return;
             }
+
 
             if (isset($this->options['general']['exclude'])) {
                 $excludeids = explode(',', $this->options['general']['exclude']);
