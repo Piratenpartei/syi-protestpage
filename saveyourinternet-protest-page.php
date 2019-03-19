@@ -52,10 +52,10 @@ if ( !class_exists( 'SYIAD' ) ) {
             }
 
             if (true !== $this->options['general']['notclosable']) {
-                if ($_REQUEST['SYIAD_disable'] == "true") {
+                if (isset($_REQUEST['SYIAD_disable']) && ($_REQUEST['SYIAD_disable'] == "true")) {
                     $_SESSION['SYIAD_disable'] = true;
                 }
-                if (true === $_SESSION['SYIAD_disable']) {
+                if (isset($_SESSION['SYIAD_disable']) && (true === $_SESSION['SYIAD_disable'])) {
                     return;
                 }
             }
