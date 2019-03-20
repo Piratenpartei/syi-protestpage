@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SaveYourInternet Protest Page 1.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/syi-protestpage\n"
-"POT-Creation-Date: 2019-03-14T21:29:02+01:00\n"
-"PO-Revision-Date: 2019-03-14 21:37+0100\n"
+"POT-Creation-Date: 2019-03-20T17:59:39+01:00\n"
+"PO-Revision-Date: 2019-03-20 18:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -87,36 +87,58 @@ msgstr "Eigener Text"
 msgid "show logo"
 msgstr "Logo anzeigen"
 
-#: options.php:198 options.php:203 options.php:218 options.php:227
-#: options.php:237
+#: options.php:131
+msgid "link to impressum"
+msgstr "Impressums-Link"
+
+#: options.php:138
+msgid "link to provacy policy"
+msgstr "Datenschutzerklärung-Link"
+
+#: options.php:223 options.php:228 options.php:243 options.php:252
+#: options.php:262
 msgid "activate"
 msgstr "Aktivieren"
 
-#: options.php:199
+#: options.php:224
 msgid "A protest box will be shown on your site on the chosen date"
 msgstr ""
 "Wenn du dies aktivierst, wird auf deiner Website am gewählten Datum eine "
 "Protestbox als Overlay angezeigt."
 
-#: options.php:204
+#: options.php:229
 msgid "If activated, the box will not be closable. Your site will be unusable."
 msgstr ""
 "Wenn du dies aktivierst, kann das Overlay nicht weggeklickt werden. Die "
 "Website wird dadurch unbenutzbar."
 
-#: options.php:209
+#: options.php:234
 msgid ""
 "Online protest day is March 21st. Offline protests will be on march 23rd."
 msgstr ""
 "Einheitlicher Protesttag ist am 21. März 2019. Die Demos werden am 23. März "
 "stattfinden."
 
-#: options.php:214
+#: options.php:239
 msgid "comma-seperated list wirh page/post-ids, which will be excluded."
 msgstr ""
 "Kommagetrennte Liste mit Post/Page-IDs, auf denen das Overlay nicht "
 "angezeigt wird."
 
-#: options.php:219
+#: options.php:244
 msgid "Show overlay now."
 msgstr "Overlay jetzt anzeigen, unabhängig vom Datum."
+
+#: options.php:271
+msgid "remember to exclude your impressum and privacy policy page"
+msgstr ""
+"nicht vergessen, die Seiten mit Impressum und Datenschutzerklärung oben "
+"auszuschließen"
+
+#: saveyourinternet-protest-page.php:80
+msgid "impressum"
+msgstr "Impressum"
+
+#: saveyourinternet-protest-page.php:83
+msgid "privacy policy"
+msgstr "Datenschutzerklärung"

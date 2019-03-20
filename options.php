@@ -126,6 +126,21 @@ class SYIAD_Options {
             'syiad-admin',
             'syiad_option_section_format'
         );
+        add_settings_field(
+            'impressum',
+            __('link to impressum', 'saveyourinternet-protest-page'),
+            array( $this, 'format_impressum_callback' ),
+            'syiad-admin',
+            'syiad_option_section_format'
+        );
+        add_settings_field(
+            'privacy',
+            __('link to provacy policy', 'saveyourinternet-protest-page'),
+            array( $this, 'format_privacy_callback' ),
+            'syiad-admin',
+            'syiad_option_section_format'
+        );
+
 
     }
 
@@ -176,6 +191,16 @@ class SYIAD_Options {
             $new_input['format']['showlogo'] = true;
         else
             $new_input['format']['showlogo'] = false;
+
+        if( isset( $input['format']['impressum'] ) && ( "" != trim($input['format']['impressum']) ))
+            $new_input['format']['impressum'] = sanitize_text_field($input['format']['impressum']);
+        else
+            $new_input['format']['impressum'] = "";
+
+        if( isset( $input['format']['privacy'] ) && ( "" != trim($input['format']['privacy']) ))
+            $new_input['format']['privacy'] = sanitize_text_field($input['format']['privacy']);
+        else
+            $new_input['format']['privacy'] = "";
 
         return $new_input;
     }
@@ -235,6 +260,15 @@ class SYIAD_Options {
         if ( !isset($this->options['format']['showlogo']) || (true === $this->options['format']['showlogo'])) echo 'checked="checked"';
         echo ' />';
         echo '<label for="format_showlogo">'.__('activate', 'saveyourinternet-protest-page').'</label>';
+    }
+    public function format_impressum_callback() {
+        printf('<input type="text" id="format_impressum" name="syiad_option[format][impressum]" value="%s" />',
+        isset( $this->options['format']['impressum'] ) ? esc_attr( $this->options['format']['impressum']) : "" );
+    }
+    public function format_privacy_callback() {
+        printf('<input type="text" id="format_privacy" name="syiad_option[format][privacy]" value="%s" />',
+        isset( $this->options['format']['privacy'] ) ? esc_attr( $this->options['format']['privacy']) : "" );
+        echo '<p class="description">'.__('remember to exclude your impressum and privacy policy page', 'saveyourinternet-protest-page').'</p>';
     }
 }
 

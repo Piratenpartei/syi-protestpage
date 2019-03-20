@@ -73,6 +73,18 @@ if ( !class_exists( 'SYIAD' ) ) {
             if (!isset($this->options['format']['showlogo']) || (true === $this->options['format']['showlogo'])) {
                 echo '<p><a id="syiad_logo" href="'.(isset($this->options['format']['link']) ? $this->options['format']['link'] : SYIAD_DEFAULTLINK).'"><img src="'.plugins_url('/images/logo.png', __FILE__ ).'" alt="Piratenpartei"></a></p>';
             }
+            
+            if ((isset($this->options['format']['impressum']) && ($this->options['format']['impressum'] != "")) || (isset($this->options['format']['privacy']) && ($this->options['format']['privacy'] != ""))) {
+                echo '<div id="syiad_pi">';
+                if (isset($this->options['format']['impressum']) && ($this->options['format']['impressum'] != "")) {
+                    echo '<a href="'.$this->options['format']['impressum'].'"> '.__("impressum", 'saveyourinternet-protest-page').' </a>';
+                }
+                if (isset($this->options['format']['privacy']) && ($this->options['format']['privacy'] != "")) {
+                    echo '<a href="'.$this->options['format']['privacy'].'"> '.__("privacy policy", 'saveyourinternet-protest-page').' </a>';
+                }
+                echo '</div>';
+            }
+
             echo '</div></div>';
         }
 
