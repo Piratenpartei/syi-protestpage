@@ -3,7 +3,7 @@
  * Plugin Name: SaveYourInternet Protest Page
  * Plugin URI: https://github.com/Piratenpartei/syi-protestpage
  * Description: Blendet am 21.03. einen Protestbanner gegen die EU-Urheberrechtsreform ein
- * Version: 1.1.2
+ * Version: 1.2.0
  * Author: Piratenpartei
  * Author URI: https://github.com/Piratenpartei
  * License: GPL3
