@@ -35,8 +35,6 @@ if ( !class_exists( 'SYIAD' ) ) {
             if (true === $this->options['general']['enable']) {
                 add_action( "wp_footer", array($this, "show_off_page") );
             }
-            if(!session_id())
-                session_start();
         }
 
         function show_off_page() {
@@ -53,9 +51,6 @@ if ( !class_exists( 'SYIAD' ) ) {
 
             if (true !== $this->options['general']['notclosable']) {
                 if (isset($_REQUEST['SYIAD_disable']) && ($_REQUEST['SYIAD_disable'] == "true")) {
-                    $_SESSION['SYIAD_disable'] = true;
-                }
-                if (isset($_SESSION['SYIAD_disable']) && (true === $_SESSION['SYIAD_disable'])) {
                     return;
                 }
             }
